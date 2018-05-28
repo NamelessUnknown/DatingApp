@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 namespace DatingApp.API.Controllers
 {
     [Route("api/[controller]")]
-    [Authorize]
+    [AllowAnonymous]
     public class ValuesController : Controller
     {
         private readonly DataContext _context;
