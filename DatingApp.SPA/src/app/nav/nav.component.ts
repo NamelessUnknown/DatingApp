@@ -19,7 +19,7 @@ export class NavComponent implements OnInit {
     this.authService.login(this.model).subscribe(data => {
       this.alertifyService.success('logged in successfully');
     }, error => {
-      this.alertifyService.error(error);
+      this.alertifyService.error('incorrect credentials');
     });
   }
 
@@ -30,7 +30,6 @@ export class NavComponent implements OnInit {
   }
 
   loggedIn() {
-  const token = localStorage.getItem('token');
-  return !!token;
+    return this.authService.loggedIn();
   }
 }
