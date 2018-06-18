@@ -21,7 +21,6 @@ constructor(private http: Http) { }
         if (user && user.tokenString) {
             localStorage.setItem('token', user.tokenString);
             this.decodedToken = this.jwtHelper.decodeToken(user.tokenString);
-            console.log(this.decodedToken.unique_name);
             this.userToken = user.tokenString;
         }
     }).catch(this.handleError);

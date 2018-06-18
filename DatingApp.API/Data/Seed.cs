@@ -15,8 +15,8 @@ namespace DatingApp.API.Data
 
         public void SeedUsers(){
             
-            // _context.Users.RemoveRange(_context.Users);
-            // _context.SaveChanges();
+            //_context.Users.RemoveRange(_context.Users);
+            //_context.SaveChanges();
 
             var userData = System.IO.File.ReadAllText("Data/UserSeedData.json");
             var users = JsonConvert.DeserializeObject<List<User>>(userData);
@@ -33,7 +33,7 @@ namespace DatingApp.API.Data
             _context.SaveChanges();
         }
 
-                private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
+        private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
             using (var hmac = new System.Security.Cryptography.HMACSHA512()){
                 passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
